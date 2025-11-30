@@ -1,0 +1,190 @@
+# Engineering Student Portfolio Website - Development Prompt
+
+## Project Overview
+Create a modern, professional portfolio website for an engineering student. The website should effectively showcase technical skills, projects, and qualifications for internship applications and job interviews.
+
+## Design Requirements
+
+### Visual Style
+- Clean, modern, and professional aesthetic
+- Responsive design that works seamlessly on desktop, tablet, and mobile
+- Use a professional color scheme (suggest: navy/blue with white/gray accents, or dark mode option)
+- Smooth scrolling and subtle animations for engagement
+- Fast loading times and optimized performance
+
+### Layout Structure
+Single-page design with clear navigation to sections:
+1. **Hero Section** - Eye-catching introduction with name, title, and brief tagline
+2. **About Me** - Professional summary and photo
+3. **Skills** - Technical competencies organized by category
+4. **Projects** - Showcase of key projects with details
+5. **Education** - Academic background
+6. **Experience** (optional) - Internships, work experience, or volunteer work
+7. **Contact** - Ways to get in touch
+
+## Section-by-Section Details
+
+### Hero Section
+- Full-screen landing area
+- Name and current status (e.g., "Mechanical Engineering Student")
+- Compelling tagline highlighting specialization
+- Call-to-action buttons (e.g., "View Projects", "Download Resume")
+- Optional: animated background or tech-themed visual elements
+
+### About Me
+- Professional photo or avatar
+- 2-3 paragraph introduction covering:
+  - Current academic status and university
+  - Engineering discipline and areas of interest
+  - Career goals and what drives you
+  - Unique value proposition
+- Key highlights or achievements in bullet points
+
+### Skills Section
+Organize skills into clear categories:
+- **Programming Languages**: (e.g., Python, C++, Java, MATLAB)
+- **Software & Tools**: (e.g., AutoCAD, SolidWorks, ANSYS, Git)
+- **Technical Skills**: (e.g., Circuit Design, Data Analysis, Machine Learning)
+- **Soft Skills**: (e.g., Team Collaboration, Problem Solving, Project Management)
+
+Display options:
+- Skill bars with proficiency levels
+- Icon grid with technology logos
+- Tag cloud design
+
+### Projects Section
+**Display 4-6 key projects** with:
+- Project thumbnail or demo image
+- Project title
+- Brief description (2-3 sentences)
+- Technologies used (tags/badges)
+- Key features or achievements
+- Links to: GitHub repo, live demo, detailed case study
+- "View Details" modal or expandable cards for more information
+
+**For each project, include:**
+- Problem statement
+- Your solution approach
+- Technical implementation details
+- Results or impact
+- Screenshots or demo video
+
+### Education
+- University name and logo
+- Degree program (e.g., Bachelor of Technology in Computer Science)
+- Expected graduation date
+- GPA (if strong)
+- Relevant coursework
+- Academic achievements, honors, or scholarships
+
+### Contact Section
+- Professional email address
+- LinkedIn profile
+- GitHub profile
+- Phone number (optional)
+- Location (city/state)
+- Contact form (optional)
+- Downloadable resume/CV button
+
+## Technical Features
+
+### Must-Have Functionality
+- Smooth scroll navigation
+- Mobile-responsive hamburger menu
+- Project filtering or categorization
+- Resume download functionality
+- External links open in new tabs
+- Form validation (if contact form included)
+
+### Nice-to-Have Features
+- Dark/light mode toggle
+- Loading animations
+- Parallax scrolling effects
+- Project search functionality
+- Typing animation for hero text
+- Progress bars for skills
+- Testimonials or recommendations section
+
+## Content Guidelines
+
+### Tone and Language
+- Professional yet approachable
+- Action-oriented language (e.g., "Developed", "Designed", "Implemented")
+- Quantify achievements where possible (e.g., "Improved efficiency by 30%")
+- Clear and concise descriptions
+- Error-free grammar and spelling
+
+### SEO Optimization
+- Descriptive page title and meta description
+- Alt text for all images
+- Semantic HTML structure
+- Fast loading times
+- Mobile-friendly design
+
+## Technical Stack Suggestions
+
+**Frontend Options:**
+- HTML5, CSS3, JavaScript (vanilla or with frameworks)
+- React.js for interactive components
+- Tailwind CSS or Bootstrap for styling
+- Framer Motion or AOS for animations
+
+**Hosting Options:**
+- GitHub Pages (free)
+- Netlify or Vercel (free tier)
+- Custom domain recommended for professional appearance
+
+## Accessibility
+- Proper heading hierarchy (h1, h2, h3)
+- Keyboard navigation support
+- Sufficient color contrast
+- Alt text for images
+- ARIA labels where appropriate
+
+## Call-to-Action Elements
+- "Download Resume" button prominently displayed
+- "View Project" buttons for each showcase item
+- "Get in Touch" or "Contact Me" in multiple sections
+- LinkedIn and GitHub links easily accessible
+
+## Mobile Optimization
+- Touch-friendly navigation
+- Readable text size without zooming
+- Optimized images for faster loading
+- Simplified navigation menu
+- Thumb-friendly button sizes
+
+## Final Checklist
+- [ ] All links work correctly
+- [ ] Images are optimized and load quickly
+- [ ] Contact information is accurate
+- [ ] Resume is up-to-date and downloadable
+- [ ] Website tested on multiple devices and browsers
+- [ ] No spelling or grammatical errors
+- [ ] Projects showcase best work
+- [ ] Professional email address used
+- [ ] Social media profiles are professional and up-to-date
+
+## Example Content Structure
+
+**Hero Tagline Examples:**
+- "Building innovative solutions through engineering excellence"
+- "Passionate about leveraging technology to solve real-world problems"
+- "Aspiring [Your Engineering Field] Engineer | Problem Solver | Innovator"
+
+**Project Description Template:**
+"[Project Name] is a [type of project] that [main purpose]. Built using [technologies], it features [key features] and demonstrates [skills showcased]. This project [impact or result achieved]."
+
+## Additional Tips for Success
+- Keep content updated regularly
+- Showcase your best 4-6 projects rather than everything
+- Include projects that demonstrate different skills
+- Use high-quality images and screenshots
+- Make it easy for recruiters to contact you
+- Ensure your GitHub repositories are well-documented
+- Consider adding a blog section for technical articles (advanced)
+- Get feedback from peers and mentors before finalizing
+
+---
+
+**Remember:** Your portfolio is often your first impression with potential employers. Make it count by keeping it professional, highlighting your strengths, and making it easy for recruiters to understand your value.
