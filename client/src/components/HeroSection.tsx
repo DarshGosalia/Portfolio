@@ -116,7 +116,7 @@ export default function HeroSection() {
             <Button
               size="lg"
               variant="outline"
-              onClick={() => window.open("/api/resume", "_blank")}
+              onClick={() => window.open("/resume.pdf", "_blank")}
               className="backdrop-blur-md bg-white/10 border-white/30 text-white hover:bg-white/20"
               data-testid="button-download-resume-hero"
             >

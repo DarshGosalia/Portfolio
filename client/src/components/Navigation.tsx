@@ -19,11 +19,11 @@ export default function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
+
       // Update active section based on scroll position
       const sections = navLinks.map(link => link.href.slice(1));
       const scrollPosition = window.scrollY + 100;
-      
+
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
         if (element && element.offsetTop <= scrollPosition) {
@@ -43,7 +43,7 @@ export default function Navigation() {
       const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
-      
+
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth"
@@ -55,11 +55,10 @@ export default function Navigation() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
             ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
             : "bg-transparent"
-        }`}
+          }`}
         data-testid="navigation-header"
       >
         <nav className="max-w-7xl mx-auto px-6 md:px-8">
@@ -74,8 +73,8 @@ export default function Navigation() {
               className="font-bold text-xl tracking-tight"
               data-testid="link-logo"
             >
-              <span className="text-primary">Alex</span>
-              <span className="text-foreground">Chen</span>
+              <span className="text-primary">Darsh</span>
+              <span className="text-foreground">Gosalia</span>
             </a>
 
             {/* Desktop Navigation */}
@@ -84,20 +83,19 @@ export default function Navigation() {
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
-                    activeSection === link.href.slice(1)
+                  className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${activeSection === link.href.slice(1)
                       ? "text-primary bg-primary/10"
                       : "text-muted-foreground hover:text-foreground"
-                  }`}
+                    }`}
                   data-testid={`link-nav-${link.label.toLowerCase()}`}
                 >
                   {link.label}
                 </button>
               ))}
-              <Button 
-                size="sm" 
+              <Button
+                size="sm"
                 className="ml-4"
-                onClick={() => window.open("/api/resume", "_blank")}
+                onClick={() => window.open("/resume.pdf", "_blank")}
                 data-testid="button-download-resume-nav"
               >
                 <Download className="w-4 h-4 mr-2" />
@@ -133,7 +131,7 @@ export default function Navigation() {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-40 md:hidden"
           >
-            <div 
+            <div
               className="absolute inset-0 bg-background/95 backdrop-blur-md"
               onClick={() => setIsMobileMenuOpen(false)}
               data-testid="overlay-mobile-menu"
@@ -153,11 +151,10 @@ export default function Navigation() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => scrollToSection(link.href)}
-                  className={`text-2xl font-medium transition-colors ${
-                    activeSection === link.href.slice(1)
+                  className={`text-2xl font-medium transition-colors ${activeSection === link.href.slice(1)
                       ? "text-primary"
                       : "text-foreground hover:text-primary"
-                  }`}
+                    }`}
                   data-testid={`link-mobile-${link.label.toLowerCase()}`}
                 >
                   {link.label}
@@ -168,7 +165,7 @@ export default function Navigation() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: navLinks.length * 0.1 }}
               >
-                <Button 
+                <Button
                   size="lg"
                   onClick={() => {
                     window.open("/api/resume", "_blank");

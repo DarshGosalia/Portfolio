@@ -1,10 +1,10 @@
 import type { Project, Skill, Education, SocialLink } from "@shared/schema";
 
 export const personalInfo = {
-  name: "Alex Chen",
+  name: "Darsh Gosalia",
   title: "Mechanical Engineering Student",
   tagline: "Building innovative solutions through engineering excellence",
-  email: "alex.chen@university.edu",
+  email: "darsh.gosalia@university.edu",
   location: "San Francisco, CA",
   about: [
     "I'm a senior Mechanical Engineering student at Stanford University with a passion for robotics and sustainable technology. My journey in engineering began when I built my first robot at age 12, and since then, I've been driven by the desire to create technology that makes a real difference.",
@@ -28,7 +28,7 @@ export const skills: Skill[] = [
   { name: "TypeScript", category: "programming" },
   { name: "MATLAB", category: "programming" },
   { name: "Java", category: "programming" },
-  
+
   // Software & Tools
   { name: "SolidWorks", category: "software" },
   { name: "AutoCAD", category: "software" },
@@ -36,7 +36,7 @@ export const skills: Skill[] = [
   { name: "Fusion 360", category: "software" },
   { name: "Git/GitHub", category: "software" },
   { name: "ROS", category: "software" },
-  
+
   // Technical Skills
   { name: "CAD/CAM Design", category: "technical" },
   { name: "FEA Analysis", category: "technical" },
@@ -44,7 +44,7 @@ export const skills: Skill[] = [
   { name: "3D Printing", category: "technical" },
   { name: "CNC Machining", category: "technical" },
   { name: "Embedded Systems", category: "technical" },
-  
+
   // Soft Skills
   { name: "Team Leadership", category: "soft" },
   { name: "Project Management", category: "soft" },
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     longDescription: "Led the development of a fully autonomous rover system designed for extraterrestrial exploration. The rover features advanced computer vision for obstacle detection, a custom-designed sample collection mechanism, and a robust suspension system for rough terrain navigation.",
     technologies: ["Python", "ROS", "OpenCV", "SolidWorks", "Arduino", "LiDAR"],
     imageUrl: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=800&h=450&fit=crop",
-    githubUrl: "https://github.com/alexchen/mars-rover",
+    githubUrl: "https://github.com/darshgosalia/mars-rover",
     features: [
       "Autonomous navigation using LiDAR and computer vision",
       "Custom 6-wheel suspension for 30° incline traversal",
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     longDescription: "Designed and built a smart solar tracking system that maximizes energy capture by continuously adjusting panel orientation. The system uses a combination of light sensors and astronomical algorithms for precise tracking.",
     technologies: ["Arduino", "Python", "IoT", "Fusion 360", "PCB Design"],
     imageUrl: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=450&fit=crop",
-    githubUrl: "https://github.com/alexchen/solar-tracker",
+    githubUrl: "https://github.com/darshgosalia/solar-tracker",
     liveUrl: "https://solar-tracker-dashboard.vercel.app",
     features: [
       "Dual-axis tracking with ±0.5° accuracy",
@@ -99,7 +99,7 @@ export const projects: Project[] = [
     longDescription: "Developed an affordable prosthetic hand solution using 3D printing and EMG sensors. The design focuses on accessibility, with total material costs under $300 while maintaining functionality comparable to commercial alternatives.",
     technologies: ["SolidWorks", "EMG Sensors", "3D Printing", "C++", "Servo Motors"],
     imageUrl: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=450&fit=crop",
-    githubUrl: "https://github.com/alexchen/prosthetic-hand",
+    githubUrl: "https://github.com/darshgosalia/prosthetic-hand",
     features: [
       "5 configurable grip patterns",
       "EMG-based muscle signal control",
@@ -117,7 +117,7 @@ export const projects: Project[] = [
     longDescription: "Built a smart HVAC control system that learns occupancy patterns and weather data to optimize heating and cooling schedules. The system integrates with existing building management systems for seamless deployment.",
     technologies: ["Python", "TensorFlow", "IoT", "REST API", "PostgreSQL"],
     imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop",
-    githubUrl: "https://github.com/alexchen/hvac-optimizer",
+    githubUrl: "https://github.com/darshgosalia/hvac-optimizer",
     features: [
       "Occupancy prediction with 95% accuracy",
       "Integration with weather APIs",
@@ -135,7 +135,7 @@ export const projects: Project[] = [
     longDescription: "Designed a lightweight autonomous drone platform for package delivery applications. The system features advanced flight controllers, computer vision for safe landing, and a unique package release mechanism.",
     technologies: ["Python", "PX4", "OpenCV", "Carbon Fiber", "LiPo Batteries"],
     imageUrl: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=800&h=450&fit=crop",
-    githubUrl: "https://github.com/alexchen/delivery-drone",
+    githubUrl: "https://github.com/darshgosalia/delivery-drone",
     features: [
       "5km operational range with 2kg payload",
       "Vision-based precision landing (±10cm)",
@@ -153,7 +153,7 @@ export const projects: Project[] = [
     longDescription: "Engineered a compact, solar-powered water purification system capable of producing safe drinking water from various contaminated sources. The design prioritizes portability, reliability, and ease of maintenance.",
     technologies: ["CAD", "UV-C LEDs", "Solar Cells", "Embedded C", "FEA"],
     imageUrl: "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=800&h=450&fit=crop",
-    githubUrl: "https://github.com/alexchen/water-purifier",
+    githubUrl: "https://github.com/darshgosalia/water-purifier",
     features: [
       "Produces 50L of clean water daily",
       "Solar-powered, no grid connection needed",
@@ -191,7 +191,7 @@ export const education: Education = {
 };
 
 export const socialLinks: SocialLink[] = [
-  { platform: "LinkedIn", url: "https://linkedin.com/in/alexchen", icon: "linkedin" },
-  { platform: "GitHub", url: "https://github.com/alexchen", icon: "github" },
-  { platform: "Email", url: "mailto:alex.chen@university.edu", icon: "mail" }
+  { platform: "LinkedIn", url: "https://linkedin.com/in/darshgosalia", icon: "linkedin" },
+  { platform: "GitHub", url: "https://github.com/darshgosalia", icon: "github" },
+  { platform: "Email", url: "mailto:darsh.gosalia@university.edu", icon: "mail" }
 ];

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a modern, professional portfolio website for an engineering student (Alex Chen) built as a single-page application. The site showcases technical skills, projects, education, and provides a contact form for potential employers and collaborators. The application uses a full-stack architecture with React frontend and Express backend, featuring smooth animations, responsive design, and a clean modern aesthetic inspired by Linear's typography and Notion's layouts.
+This is a modern, professional portfolio website for an engineering student (Darsh Gosalia) built as a single-page application. The site showcases technical skills, projects, education, and provides a contact form for potential employers and collaborators. The application uses a full-stack architecture with React frontend and Express backend, featuring smooth animations, responsive design, and a clean modern aesthetic inspired by Linear's typography and Notion's layouts.
 
 ## User Preferences
 
@@ -55,7 +55,7 @@ Single-page layout with smooth-scroll navigation to sections:
 **API Design**
 - RESTful endpoints under `/api` prefix
 - POST `/api/contact` - Contact form submission with Zod validation
-- GET `/api/resume` - Resume download endpoint (text-based generation)
+- Static file serving for resume download
 - JSON request/response format with error handling
 
 **Development vs Production**
