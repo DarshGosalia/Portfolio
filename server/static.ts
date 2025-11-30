@@ -10,10 +10,27 @@ export function serveStatic(app: Express) {
     );
   }
 
-  app.use(express.static(distPath));
+  // Serve static files with proper MIME types
+  app.use(express.static(distPath, {
+    setHeaders: (res, filePath) => {
+      // Ensure HTML files are served with correct content type
+      if (filePath.endsWith('.html')) {
+        res.setHeader('Content-Type', 'text/html; charset=utf-8');
+      }
+      // Ensure PDF files are served correctly for download
+      if (filePath.endsWith('.pdf')) {
+        res.setHeader('Content-Type', 'application/pdf');
+        // Only set Content-Disposition for resume.pdf to trigger download
+        if (filePath.includes('resume.pdf')) {
+          res.setHeader('Content-Disposition', 'attachment; filename="resume.pdf"');
+        }
+      }
+    }
+  }));
 
   // fall through to index.html if the file doesn't exist
   app.use("*", (_req, res) => {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.sendFile(path.resolve(distPath, "index.html"));
   });
 }

@@ -16,10 +16,10 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { 
-  Mail, 
-  MapPin, 
-  Send, 
+import {
+  Mail,
+  MapPin,
+  Send,
   Download,
   Linkedin,
   Github,
@@ -170,7 +170,7 @@ export default function ContactSection() {
                 </h3>
                 <Button
                   size="lg"
-                  onClick={() => window.open("/api/resume", "_blank")}
+                  onClick={() => window.open("/resume.pdf", "_blank")}
                   className="w-full sm:w-auto"
                   data-testid="button-download-resume-contact"
                 >
@@ -218,9 +218,9 @@ export default function ContactSection() {
                             <FormItem>
                               <FormLabel>Name</FormLabel>
                               <FormControl>
-                                <Input 
-                                  placeholder="Your name" 
-                                  {...field} 
+                                <Input
+                                  placeholder="Your name"
+                                  {...field}
                                   data-testid="input-name"
                                 />
                               </FormControl>
@@ -236,9 +236,9 @@ export default function ContactSection() {
                             <FormItem>
                               <FormLabel>Email</FormLabel>
                               <FormControl>
-                                <Input 
-                                  type="email" 
-                                  placeholder="your.email@example.com" 
+                                <Input
+                                  type="email"
+                                  placeholder="your.email@example.com"
                                   {...field}
                                   data-testid="input-email"
                                 />

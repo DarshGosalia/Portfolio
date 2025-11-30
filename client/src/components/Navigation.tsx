@@ -56,8 +56,8 @@ export default function Navigation() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-            ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
-            : "bg-transparent"
+          ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
+          : "bg-transparent"
           }`}
         data-testid="navigation-header"
       >
@@ -84,8 +84,8 @@ export default function Navigation() {
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
                   className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${activeSection === link.href.slice(1)
-                      ? "text-primary bg-primary/10"
-                      : "text-muted-foreground hover:text-foreground"
+                    ? "text-primary bg-primary/10"
+                    : "text-muted-foreground hover:text-foreground"
                     }`}
                   data-testid={`link-nav-${link.label.toLowerCase()}`}
                 >
@@ -152,8 +152,8 @@ export default function Navigation() {
                   transition={{ delay: index * 0.1 }}
                   onClick={() => scrollToSection(link.href)}
                   className={`text-2xl font-medium transition-colors ${activeSection === link.href.slice(1)
-                      ? "text-primary"
-                      : "text-foreground hover:text-primary"
+                    ? "text-primary"
+                    : "text-foreground hover:text-primary"
                     }`}
                   data-testid={`link-mobile-${link.label.toLowerCase()}`}
                 >
@@ -168,7 +168,7 @@ export default function Navigation() {
                 <Button
                   size="lg"
                   onClick={() => {
-                    window.open("/api/resume", "_blank");
+                    window.open("/resume.pdf", "_blank");
                     setIsMobileMenuOpen(false);
                   }}
                   data-testid="button-download-resume-mobile"
