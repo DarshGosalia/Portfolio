@@ -43,9 +43,9 @@
   --chart-3: 173 80% 32%;
   --chart-4: 280 70% 42%;
   --chart-5: 25 85% 45%;
-  --font-sans: Open Sans, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-serif: Georgia, serif;
-  --font-mono: Menlo, monospace;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --radius: .5rem;
   --shadow-2xs: 0px 2px 0px 0px hsl(220 8% 50% / 0.00);
   --shadow-xs: 0px 2px 0px 0px hsl(220 8% 50% / 0.00);
@@ -170,8 +170,17 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  /* Scroll margin for fixed header */
+  section[id] {
+    scroll-margin-top: 5rem;
   }
 }
 
