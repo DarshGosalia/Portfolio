@@ -14,12 +14,12 @@ import { ExternalLink, Github, X, ChevronRight } from "lucide-react";
 import { projects } from "@/lib/portfolio-data";
 import type { Project } from "@shared/schema";
 
-function ProjectCard({ 
-  project, 
+function ProjectCard({
+  project,
   onClick,
-  index 
-}: { 
-  project: Project; 
+  index
+}: {
+  project: Project;
   onClick: () => void;
   index: number;
 }) {
@@ -30,7 +30,7 @@ function ProjectCard({
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <Card 
+      <Card
         className="group cursor-pointer overflow-hidden hover-elevate transition-all duration-300"
         onClick={onClick}
         data-testid={`card-project-${project.id}`}
@@ -43,7 +43,7 @@ function ProjectCard({
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          
+
           {/* Hover Overlay */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <span className="px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-white text-sm font-medium border border-white/30">
@@ -66,9 +66,9 @@ function ProjectCard({
           {/* Tech Tags */}
           <div className="flex flex-wrap gap-2">
             {project.technologies.slice(0, 4).map((tech) => (
-              <Badge 
-                key={tech} 
-                variant="outline" 
+              <Badge
+                key={tech}
+                variant="outline"
                 className="font-mono text-xs"
                 data-testid={`badge-tech-${project.id}-${tech.toLowerCase().replace(/\s+/g, '-')}`}
               >
@@ -87,115 +87,123 @@ function ProjectCard({
   );
 }
 
-function ProjectModal({ 
-  project, 
-  isOpen, 
-  onClose 
-}: { 
-  project: Project | null; 
-  isOpen: boolean; 
+function ProjectModal({
+  project,
+  isOpen,
+  onClose
+}: {
+  project: Project | null;
+  isOpen: boolean;
   onClose: () => void;
 }) {
   if (!project) return null;
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto" data-testid={`modal-project-${project.id}`}>
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-bold" data-testid="text-modal-title">
-            {project.title}
-          </DialogTitle>
-          <DialogDescription className="text-base text-muted-foreground">
-            {project.description}
-          </DialogDescription>
-        </DialogHeader>
-
-        {/* Project Image */}
-        <div className="aspect-video rounded-lg overflow-hidden my-4">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0 gap-0" data-testid={`modal-project-${project.id}`}>
+        {/* Banner Image */}
+        <div className="relative w-full h-64 sm:h-80 overflow-hidden bg-muted">
           <img
             src={project.imageUrl}
             alt={project.title}
             className="w-full h-full object-cover"
             data-testid="img-modal-project"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+            <div className="flex flex-wrap gap-2 mb-4">
+              {project.technologies.map((tech) => (
+                <Badge
+                  key={tech}
+                  variant="secondary"
+                  className="bg-background/80 backdrop-blur text-foreground border-border/50"
+                >
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+            <DialogTitle className="text-3xl md:text-4xl font-bold text-foreground mb-2 drop-shadow-md" data-testid="text-modal-title">
+              {project.title}
+            </DialogTitle>
+          </div>
         </div>
 
-        {/* Tech Stack */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.technologies.map((tech) => (
-            <Badge 
-              key={tech} 
-              variant="secondary" 
-              className="font-mono text-xs"
-            >
-              {tech}
-            </Badge>
-          ))}
-        </div>
+        <div className="p-6 md:p-8 space-y-8">
+          <DialogDescription className="text-lg text-muted-foreground leading-relaxed">
+            {project.longDescription || project.description}
+          </DialogDescription>
 
-        {/* Problem / Solution / Results */}
-        <div className="space-y-6">
-          <div data-testid="text-modal-problem">
-            <h4 className="text-lg font-semibold text-foreground mb-2 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-red-500" />
-              Problem
-            </h4>
-            <p className="text-muted-foreground">{project.problem}</p>
-          </div>
+          {/* Problem / Solution / Results Grid */}
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-muted/50 p-5 rounded-lg border border-border/50" data-testid="text-modal-problem">
+              <h4 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]" />
+                Problem
+              </h4>
+              <p className="text-sm text-muted-foreground leading-relaxed">{project.problem}</p>
+            </div>
 
-          <div data-testid="text-modal-solution">
-            <h4 className="text-lg font-semibold text-foreground mb-2 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-yellow-500" />
-              Solution
-            </h4>
-            <p className="text-muted-foreground">{project.solution}</p>
-          </div>
+            <div className="bg-muted/50 p-5 rounded-lg border border-border/50" data-testid="text-modal-solution">
+              <h4 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.5)]" />
+                Solution
+              </h4>
+              <p className="text-sm text-muted-foreground leading-relaxed">{project.solution}</p>
+            </div>
 
-          <div data-testid="text-modal-results">
-            <h4 className="text-lg font-semibold text-foreground mb-2 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-green-500" />
-              Results
-            </h4>
-            <p className="text-muted-foreground">{project.results}</p>
+            <div className="bg-muted/50 p-5 rounded-lg border border-border/50" data-testid="text-modal-results">
+              <h4 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
+                Results
+              </h4>
+              <p className="text-sm text-muted-foreground leading-relaxed">{project.results}</p>
+            </div>
           </div>
 
           {/* Key Features */}
           <div data-testid="list-modal-features">
-            <h4 className="text-lg font-semibold text-foreground mb-3">
+            <h4 className="text-xl font-bold text-foreground mb-4 border-b border-border pb-2">
               Key Features
             </h4>
-            <ul className="space-y-2">
+            <div className="grid sm:grid-cols-2 gap-4">
               {project.features.map((feature, index) => (
-                <li key={index} className="flex items-start gap-2 text-muted-foreground" data-testid={`text-modal-feature-${index}`}>
-                  <ChevronRight className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                  <span>{feature}</span>
-                </li>
+                <div key={index} className="flex items-start gap-3 p-3 rounded-md hover:bg-muted/50 transition-colors" data-testid={`text-modal-feature-${index}`}>
+                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <ChevronRight className="w-4 h-4 text-primary" />
+                  </div>
+                  <span className="text-muted-foreground">{feature}</span>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
-        </div>
 
-        {/* Action Buttons */}
-        <div className="flex flex-wrap gap-3 mt-6 pt-6 border-t border-border">
-          {project.githubUrl && (
-            <Button
-              variant="outline"
-              onClick={() => window.open(project.githubUrl, "_blank")}
-              data-testid="button-github-link"
-            >
-              <Github className="w-4 h-4 mr-2" />
-              View on GitHub
-            </Button>
-          )}
-          {project.liveUrl && (
-            <Button
-              onClick={() => window.open(project.liveUrl, "_blank")}
-              data-testid="button-live-demo"
-            >
-              <ExternalLink className="w-4 h-4 mr-2" />
-              Live Demo
-            </Button>
-          )}
+          {/* Action Buttons */}
+          <div className="flex flex-wrap gap-4 pt-6 border-t border-border">
+            {project.githubUrl && (
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => window.open(project.githubUrl, "_blank")}
+                data-testid="button-github-link"
+                className="gap-2"
+              >
+                <Github className="w-5 h-5" />
+                View Source
+              </Button>
+            )}
+            {project.liveUrl && (
+              <Button
+                size="lg"
+                onClick={() => window.open(project.liveUrl, "_blank")}
+                data-testid="button-live-demo"
+                className="gap-2"
+              >
+                <ExternalLink className="w-5 h-5" />
+                Live Demo
+              </Button>
+            )}
+          </div>
         </div>
       </DialogContent>
     </Dialog>

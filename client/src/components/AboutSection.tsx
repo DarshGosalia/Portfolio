@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin, Mail } from "lucide-react";
 import { personalInfo } from "@/lib/portfolio-data";
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 export default function AboutSection() {
   return (
@@ -39,7 +40,7 @@ export default function AboutSection() {
               <div className="relative">
                 <div className="aspect-square max-w-md rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 border border-border">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                    src={profilePhoto}
                     alt={personalInfo.name}
                     className="w-full h-full object-cover"
                     data-testid="img-profile"

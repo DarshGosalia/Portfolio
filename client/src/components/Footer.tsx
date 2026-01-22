@@ -17,9 +17,9 @@ export default function Footer() {
           {/* Copyright */}
           <div className="flex items-center gap-1 text-sm text-muted-foreground" data-testid="text-copyright">
             <span>&copy; {currentYear} {personalInfo.name}.</span>
-            <span className="hidden sm:inline">Built with</span>
+            {/* <span className="hidden sm:inline">Built with</span>
             <Heart className="w-4 h-4 text-red-500 hidden sm:inline" />
-            <span className="hidden sm:inline">and lots of coffee.</span>
+            <span className="hidden sm:inline">and lots of coffee.</span> */}
           </div>
 
           {/* Social Links */}

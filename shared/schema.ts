@@ -70,6 +70,15 @@ export interface Education {
   achievements: string[];
 }
 
+
+export interface Achievement {
+  id: string;
+  title: string;
+  organization: string;
+  date: string;
+  description?: string;
+}
+
 export interface SocialLink {
   platform: string;
   url: string;
