@@ -73,7 +73,7 @@ export default function Navigation() {
               className="font-bold text-xl tracking-tight"
               data-testid="link-logo"
             >
-              <span className="text-primary">Darsh</span>
+              <span className="text-primary">Darsh</span>{" "}
               <span className={isScrolled ? "text-foreground" : "text-foreground md:text-white"}>Gosalia</span>
             </a>
 
@@ -84,10 +84,10 @@ export default function Navigation() {
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
                   className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${activeSection === link.href.slice(1)
-                      ? "text-primary bg-primary/10"
-                      : isScrolled
-                        ? "text-muted-foreground hover:text-foreground"
-                        : "text-white/80 hover:text-white"
+                    ? "text-primary bg-primary/10"
+                    : isScrolled
+                      ? "text-muted-foreground hover:text-foreground"
+                      : "text-white/80 hover:text-white"
                     }`}
                   data-testid={`link-nav-${link.label.toLowerCase()}`}
                 >
