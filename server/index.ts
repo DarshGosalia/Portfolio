@@ -2,6 +2,10 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
+import mongoose from "mongoose";
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 const httpServer = createServer(app);
@@ -60,6 +64,24 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  try {
+    let mongoUri = process.env.MONGODB_URI || "mongodb://localhost:27017/portfolio";
+    
+    // Automatically fallback to in-memory mongodb if a placeholder is detected
+    if (mongoUri.includes("<YOUR_CLUSTER_ADDRESS>")) {
+      log("Placeholder URI detected. Spinning up in-memory MongoDB...", "mongoose");
+      const { MongoMemoryServer } = await import('mongodb-memory-server');
+      const mongod = await MongoMemoryServer.create();
+      mongoUri = mongod.getUri();
+    }
+
+    await mongoose.connect(mongoUri);
+    log("Connected to MongoDB at " + mongoUri, "mongoose");
+  } catch (error) {
+    log("Failed to connect to MongoDB: " + error, "mongoose");
+    process.exit(1);
+  }
+
   await registerRoutes(httpServer, app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {

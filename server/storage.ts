@@ -1,5 +1,5 @@
 import { type User, type InsertUser, type ContactSubmission, type InsertContact } from "@shared/schema";
-import { randomUUID } from "crypto";
+import { UserModel, ContactSubmissionModel } from "./models";
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
@@ -9,42 +9,47 @@ export interface IStorage {
   getContactSubmissions(): Promise<ContactSubmission[]>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<string, User>;
-  private contactSubmissions: Map<string, ContactSubmission>;
-
-  constructor() {
-    this.users = new Map();
-    this.contactSubmissions = new Map();
-  }
-
+export class MongoStorage implements IStorage {
   async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
+    const user = await UserModel.findById(id).lean();
+    if (!user) return undefined;
+    return { ...user, id: user._id.toString() } as User;
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+    const user = await UserModel.findOne({ username }).lean();
+    if (!user) return undefined;
+    return { ...user, id: user._id.toString() } as User;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+    const user = await UserModel.create(insertUser);
+    return { 
+      username: user.username,
+      password: user.password || "",
+      id: user._id.toString() 
+    } as User;
   }
 
   async createContactSubmission(insertContact: InsertContact): Promise<ContactSubmission> {
-    const id = randomUUID();
-    const submission: ContactSubmission = { ...insertContact, id };
-    this.contactSubmissions.set(id, submission);
-    return submission;
+    const submission = await ContactSubmissionModel.create(insertContact);
+    return {
+      name: submission.name,
+      email: submission.email,
+      message: submission.message,
+      id: submission._id.toString()
+    } as ContactSubmission;
   }
 
   async getContactSubmissions(): Promise<ContactSubmission[]> {
-    return Array.from(this.contactSubmissions.values());
+    const submissions = await ContactSubmissionModel.find().lean();
+    return submissions.map(sub => ({
+      name: sub.name,
+      email: sub.email,
+      message: sub.message,
+      id: sub._id.toString()
+    })) as ContactSubmission[];
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new MongoStorage();
